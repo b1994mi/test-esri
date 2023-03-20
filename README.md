@@ -19,5 +19,8 @@ Password: admin
 
 | Endpoint      | HTTP   | Description  | Request Body/Params | Response Body|
 | ------------- | ------ | ---------------------- | ---------------------------------------------------------------- |----|
-| `/`    | GET    | Will give a simple response.|  |`{"message": "pong"}`
-|
+| `/`    | GET    | Will give a simple response.|  |`{"message": "pong"}`|
+| `/login`    | POST    | Get the token needed for restricted endpoints. Have limited expiry time of 3 min.| `{"username": "admin", "password": "admin"}` |`{"data": "eyJhbGciOiJIUzI1NiIsI"}`|
+| `/complaint`    | GET    | List of complaints accessible for that user.| `?page=1&size=10` |`{"data": [{"id": 1, "user_id": 1, "meteran_id": 2}]}`|
+| `/complaint`    | POST    | Save complaint to db and store images. Request must use Formdata. Will return the saved object as response.| Formdata: `issue: {"meteran_id": 1,"category_id": 1,"complaint_name": "Sebuah keluhan","short_description": "","priority_level": 1}`; Formdata: `image: file` |`{"data": {"id": 1, "user_id": 1, "meteran_id": 2}}`|
+
