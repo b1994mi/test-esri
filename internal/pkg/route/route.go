@@ -21,6 +21,7 @@ func NewRouter(h handlerContainer) *bunrouter.Router {
 		return nil
 	})
 
+	r.POST("/register", h.authHandler.RegisterHandler)
 	r.POST("/login", h.authHandler.LoginHandler)
 	r.Use(middleware.AuthMiddleware).GET("/complaint", h.complaintHandler.FindPagedHandler)
 	r.Use(middleware.AuthMiddleware).POST("/complaint", h.complaintHandler.CreateHandler)

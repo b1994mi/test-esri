@@ -6,6 +6,7 @@ import (
 
 type Usecase interface {
 	LoginUsecase(req LoginRequest) (interface{}, error)
+	RegisterUsecase(req RegisterRequest) (interface{}, error)
 }
 
 type usecase struct {

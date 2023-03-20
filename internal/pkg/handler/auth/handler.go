@@ -9,6 +9,7 @@ import (
 
 type Handler interface {
 	LoginHandler(w http.ResponseWriter, bunReq bunrouter.Request) error
+	RegisterHandler(w http.ResponseWriter, bunReq bunrouter.Request) error
 }
 
 type handler struct {
