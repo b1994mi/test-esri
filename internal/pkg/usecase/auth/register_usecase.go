@@ -11,10 +11,10 @@ import (
 )
 
 type RegisterRequest struct {
-	FullName string
-	Username string
-	Email    string
-	Password string
+	FullName string `json:"full_name"`
+	Username string `json:"username"`
+	Email    string `json:"email"`
+	Password string `json:"passsword"`
 }
 
 func (uc *usecase) RegisterUsecase(req RegisterRequest) (interface{}, error) {
